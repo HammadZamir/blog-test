@@ -3,6 +3,7 @@ const commentModel= require("../models/Comment")
 const app= express();
 app.use(express.json());
 
+
 const getComment=async(req, res)=>{
 
     try{
@@ -13,6 +14,10 @@ const getComment=async(req, res)=>{
       res.send(500).json({message:"Error Fetching comment", error:error.message})
     }
 }
+
+
+
+
 const postComment=async(req, res)=>{
     try{
         const postcomment=  new commentModel(req.body)
@@ -27,7 +32,4 @@ const postComment=async(req, res)=>{
 
 }
 
-module.exports ={
-    getComment,
-    postComment
-}
+module.exports ={ getComment, postComment }
